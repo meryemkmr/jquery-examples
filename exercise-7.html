@@ -1,11 +1,68 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
     <title></title>
+
+    <style>
+      #wrapper {
+        max-width: 480px;
+        margin: auto;
+      }
+
+      #description,
+      #search,
+      #todo-list {
+        font-size: 1.5em;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="wrapper">
+      <input id="description" type="text" name="description" />
+      <button id="add-button">Add Task</button>
+      <ul id="todo-list">
+        <li>Feed the cat</li>
+      </ul>
+    </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script>
-    /*
+      // let wrapper = document.getElementById("wrapper")
+      // let description = document.getElementById("add-button")
+      // let add-button = document.getElementById("add-button")
+      // let todo-list=document.getElementById("todo-list")
+      let wrapper = $("#wrapper");
+      let description = $("#add-button");
+      let addButton = $("#add-button");
+      let todoList = $("#todo-list");
+
+      function deleteButton(element) {
+        element = $(element);
+
+        element.parent().remove();
+      }
+
+      function move(element) {
+        element = $(element);
+        if (element.is(":checked")) {
+          todoList.append(element.parent());
+        } else {
+          addButton.append(element.parent());
+        }
+      }
+
+      description.click(function() {
+        let taskValue = wrapper.val();
+        let taskDiv = `
+  <div id = "task-div" class="taskDiv">
+  <input  class="taskCheckBox" type="checkbox" onchange="move(this)"/>
+  <label> ${taskValue} </label>
+  <button class="deleteButton" onclick="deleteButton(this)">Delete</button>
+  </div>
+  `;
+        addButton.append(taskDiv);
+      });
+      /*
     Make a Todo List
 
     0. Make it so that after entering the task description, in the text field and clicking the "Add Task" button, a new task appears inside the element with the id todo-list.
@@ -16,24 +73,5 @@
 
     */
     </script>
-    <style>
-    #wrapper {
-      max-width: 480px;
-      margin: auto;
-    }
-
-    #description, #search, #todo-list {
-      font-size: 1.5em;
-    }
-    </style>
-  </head>
-  <body>
-    <div id="wrapper">
-      <input id="description" type="text" name="description">
-      <button id="add-button">Add Task</button>
-      <ul id="todo-list">
-        <li>Feed the cat</li>
-      </ul>
-    </div>
   </body>
 </html>

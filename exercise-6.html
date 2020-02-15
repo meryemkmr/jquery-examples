@@ -3,18 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title></title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script>
-    /*
-    When the section header is clicked, hide the section.
-    When it's clicked again, make the section show.
-    (Make it toggle back and forth between hidden and show)
-    */
-    $(function() {
-      // Write code here
-    });
-    </script>
-
+    
     <style>
     #section-header {
       background-color: blue;
@@ -43,5 +32,20 @@
         </p>
       </div>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+    /*
+    When the section header is clicked, hide the section.
+    When it's clicked again, make the section show.
+    (Make it toggle back and forth between hidden and show)
+    */
+    $(function() {
+      // Write code here
+      $('#section-header').click(()=>{
+        $('#section').toggle();
+      })
+    });
+    </script>
+
   </body>
 </html>

@@ -3,17 +3,30 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+    <!-- <form id="myForm">
+      Enter name: 
+      <input name="brand" type="radio" value="volvo">
+      <input name="brand" type="radio" value="saab">
+      <input name="brand" type="radio" value="bmw">
+      <input type="submit" >
+  </form> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script>
     /*
     Change the text of the button to "Please click me!". Putting your code in the document ready block is important.
     */
-    $(document).ready(function () {
-      // Put your code here
-    });
+    $('#the-button').click((e)=>{
+      $('textarea').show();
+      })
+      
     </script>
   </head>
   <body>
-    <button id="the-button">meh</button>
+    <button id="the-button">"Please click me!"</button>
+
+
+    $('#aButtonShow').click((e)=>{
+           $('textarea').show();
+       })
   </body>
 </html>
